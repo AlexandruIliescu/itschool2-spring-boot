@@ -1,7 +1,7 @@
 package ro.itschool.project.services;
 
 import org.springframework.stereotype.Service;
-import ro.itschool.project.models.Book;
+import ro.itschool.project.models.entities.Book;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package ro.itschool.project.services;
 
-import ro.itschool.project.models.Book;
+import ro.itschool.project.models.entities.Book;
 
 import java.util.List;
 

@@ -7,7 +7,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import ro.itschool.project.models.WeatherResponse;
+import ro.itschool.project.models.dtos.WeatherResponseDTO;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -26,7 +26,7 @@ public class WeatherServiceImpl implements WeatherService {
     private String airQualityValue;
 
     @Override
-    public WeatherResponse getCityWeather(String city) throws IOException {
+    public WeatherResponseDTO getCityWeather(String city) throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(apiValue + "key=" + apiKeyValue + "&q=" + city + "&aqi=" + airQualityValue).build();
         Response response = client.newCall(request).execute();
@@ -39,11 +39,11 @@ public class WeatherServiceImpl implements WeatherService {
 
         LocalDateTime localDateTime = LocalDateTime.parse(jsonNode.get("current").get("last_updated").asText(), formatter);
 
-        WeatherResponse weatherResponse = new WeatherResponse();
-        weatherResponse.setCity(jsonNode.get("location").get("name").toString());
-        weatherResponse.setLastUpdated(localDateTime);
-        weatherResponse.setDescription(jsonNode.get("current").get("condition").get("text").toString());
+        WeatherResponseDTO weatherResponseDTO = new WeatherResponseDTO();
+        weatherResponseDTO.setCity(jsonNode.get("location").get("name").toString());
+        weatherResponseDTO.setLastUpdated(localDateTime);
+        weatherResponseDTO.setDescription(jsonNode.get("current").get("condition").get("text").toString());
 
-        return weatherResponse;
+        return weatherResponseDTO;
     }
 }

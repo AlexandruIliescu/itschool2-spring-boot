@@ -2,7 +2,7 @@ package ro.itschool.project.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ro.itschool.project.models.Book;
+import ro.itschool.project.models.entities.Book;
 import ro.itschool.project.services.BookService;
 
 import java.util.List;
