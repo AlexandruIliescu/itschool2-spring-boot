@@ -14,12 +14,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findByLastName(String lastName);
 
     // Explicit JPQL
-    @Query("SELECT u FROM users u WHERE u.lastName = :lastName")
+    @Query("SELECT u FROM User u WHERE u.lastName = :lastName")
     List<User> findUsersByLastNameJPQL(String lastName);
 
     // Native SQL
     @Query(value = "SELECT * FROM users WHERE last_name = :lastName", nativeQuery = true)
     List<User> findUsersByLastNameNative(String lastName);
 }
-
-

@@ -9,11 +9,11 @@ import java.io.Serializable;
 public class UserDTO implements Serializable {
 
     private Long id;
-    @NotEmpty( message = "this field should not be empty")
+//    @NotEmpty( message = "this field should not be empty")
     private String firstName;
-    @NotEmpty
+//    @NotEmpty
     private String lastName;
-    @NotEmpty
+//    @NotEmpty
     private String email;
     private int age;
 }
