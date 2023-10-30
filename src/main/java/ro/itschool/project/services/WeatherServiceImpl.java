@@ -16,13 +16,13 @@ import java.time.format.DateTimeFormatter;
 @Service
 public class WeatherServiceImpl implements WeatherService {
 
-    @Value("${api}")
+//    @Value("${api}")
     private String apiValue;
 
-    @Value("${apiKey}")
+//    @Value("${apiKey}")
     private String apiKeyValue;
 
-    @Value("${airQuality}")
+//    @Value("${airQuality}")
     private String airQualityValue;
 
     @Override

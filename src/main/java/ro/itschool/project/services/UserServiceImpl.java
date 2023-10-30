@@ -8,6 +8,8 @@ import ro.itschool.project.models.dtos.UserDTO;
 import ro.itschool.project.models.entities.User;
 import ro.itschool.project.repositories.UserRepository;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
@@ -33,5 +35,14 @@ public class UserServiceImpl implements UserService {
         log.info("Created user with id: {}", userResponseEntity.getId());
 
         return objectMapper.convertValue(userResponseEntity, UserDTO.class);
+    }
+
+    @Override
+    public List<UserDTO> getUsers() {
+        List<User> users =  userRepository.findAll();
+
+        return users.stream()
+                .map(user -> objectMapper.convertValue(user, UserDTO.class))
+                .toList();
     }
 }
